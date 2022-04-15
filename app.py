@@ -70,7 +70,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,
                                 TextSendMessage(text=result))
     elif "產業資訊" in message:
-        result1 = weekly_news()
+        result1 = industry_dynamics()
         line_bot_api.reply_message(event.reply_token,
                                 TextSendMessage(text=result1))
 
