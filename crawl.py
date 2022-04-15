@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+#即時新聞
 def news_crawler():
     base = "https://news.cnyes.com"
     url  = "https://news.cnyes.com/news/cat/headline"
@@ -22,7 +23,7 @@ def news_crawler():
     return content
 
 
-def weekly_news():
+def ndustry_dynamics():
     base_1 = "https://www.businessweekly.com.tw"
     url_1  = "https://www.businessweekly.com.tw/channel/insight/0000000320"
     re   = requests.get(url_1)
@@ -38,12 +39,8 @@ def weekly_news():
     for index, d in enumerate(data):
         if index <8:
             title = d.text.strip()
-            # href  = base_1 + d.get("href")
             href  = base_1 + str(d.find('a')['href'])
-         
             content +=  title + '\n' +href +'\n\n'
-
-       
 
         else:
             break
